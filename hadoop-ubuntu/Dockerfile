@@ -13,7 +13,21 @@ ENV PATH=$PATH:/usr/local/hadoop/bin:/usr/local/hadoop/sbin
 
 RUN mkdir -p ~/hdfs/namenode && \ 
     mkdir -p ~/hdfs/datanode && \
-    mkdir $HADOOP_HOME/logs
+    mkdir $HADOOP_HOME/logs 
+
+#add hadoop user group and user
+USER root
+RUN addgroup hadoop
+RUN adduser --ingroup hadoop hduser
+RUN echo "hduser ALL=(ALL) NOPASSWD: ALL" >> /etc/sudoers
+
+#copy hadoop configs
+COPY hadoop_configs/core-site.xml /usr/local/hadoop/etc/hadoop/.
+COPY hadoop_configs/hdfs-site.xml /usr/local/hadoop/etc/hadoop/.
+COPY hadoop_configs/yarn-site.xml /usr/local/hadoop/etc/hadoop/.
+COPY hadoop_configs/mapred-site.xml /usr/local/hadoop/etc/hadoop/.
+COPY hadoop_configs/masters /usr/local/hadoop/etc/hadoop/.
+COPY hadoop_configs/slaves /usr/local/hadoop/etc/hadoop/.
 
 # Define default command.
 CMD ["bash"]

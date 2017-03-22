@@ -1,0 +1,12 @@
+version: '2'
+services:
+  instance1:
+    image: "fidato/hadoop-ubuntu:latest"
+    stdin_open: true
+    tty: true
+    container_name: instance1
+  instance2:
+    image: "fidato/hadoop-ubuntu:latest"
+    stdin_open: true
+    tty: true
+    container_name: instance2
