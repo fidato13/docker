@@ -5,13 +5,21 @@ services:
     stdin_open: true
     tty: true
     container_name: master
-  slaves1:
+    ports:
+      - "8088:8088"
+      - "50070:50070"
+  slave1:
     image: "fidato/hadoop-ubuntu:latest"
     stdin_open: true
     tty: true
-    container_name: slaves1
-  slaves2:
+    container_name: slave1
+  slave2:
     image: "fidato/hadoop-ubuntu:latest"
     stdin_open: true
     tty: true
-    container_name: slaves2
+    container_name: slave2
+  slave3:
+    image: "fidato/hadoop-ubuntu:latest"
+    stdin_open: true
+    tty: true
+    container_name: slave3

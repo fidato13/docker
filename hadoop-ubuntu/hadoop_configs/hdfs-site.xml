@@ -23,10 +23,10 @@
 	</property>
 	<property>
       <name>dfs.namenode.name.dir</name>
-      <value>file:/home/hduser/hdfs/namenode</value>
+      <value>file:/root/hdfs/namenode</value>
  	</property>
 	<property>
 	     <name>dfs.datanode.data.dir</name>
-      	 <value>file:/home/hduser/hdfs/datanode</value>
+      	 <value>file:/root/hdfs/datanode</value>
 	</property>
 </configuration>

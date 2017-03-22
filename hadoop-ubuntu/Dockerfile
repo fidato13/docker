@@ -20,24 +20,10 @@ ENV HADOOP_OPTS="-Djava.library.path=$HADOOP_HOME/lib"
 
 #add hadoop user group and user
 USER root
-RUN addgroup hadoop
-RUN useradd -ms /bin/bash hduser -g hadoop
-#RUN adduser --ingroup hadoop hduser
-RUN echo "hduser ALL=(ALL) NOPASSWD: ALL" >> /etc/sudoers
 
-#Create log directory
-RUN mkdir $HADOOP_HOME/logs
-
-#Change ownership to hduser so that log file location can be created
-RUN chown -R hduser:hadoop /usr/local/hadoop
-RUN chown -R hduser:hadoop /root
-
-#switch user to hduser
-USER hduser
-WORKDIR /home/hduser
-
-RUN mkdir -p /home/hduser/hdfs/namenode && \ 
-    mkdir -p /home/hduser/hdfs/datanode
+RUN mkdir -p /root/hdfs/namenode && \ 
+    mkdir -p /root/hdfs/datanode && \
+    mkdir $HADOOP_HOME/logs
 
 #copy hadoop configs
 COPY hadoop_configs/core-site.xml /usr/local/hadoop/etc/hadoop/.
@@ -46,8 +32,7 @@ COPY hadoop_configs/yarn-site.xml /usr/local/hadoop/etc/hadoop/.
 COPY hadoop_configs/mapred-site.xml /usr/local/hadoop/etc/hadoop/.
 COPY hadoop_configs/masters /usr/local/hadoop/etc/hadoop/.
 COPY hadoop_configs/slaves /usr/local/hadoop/etc/hadoop/.
-
-
+COPY hadoop_configs/hadoop-env.sh /usr/local/hadoop/etc/hadoop/.
 
 # Define default command.
-CMD ["bash"]
+CMD ["sh", "-c" ,"service ssh restart; bash"]
