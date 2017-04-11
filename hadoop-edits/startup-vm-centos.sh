@@ -41,6 +41,9 @@ hadoop jar /opt/hadoop-2.7.3/share/hadoop/mapreduce/hadoop-mapreduce-examples-2.
 cat ~/output/*
 
 #ssh
-yes | ssh localhost
+ssh-keygen -t rsa -P '' -f ~/.ssh/id_rsa
+cat ~/.ssh/id_rsa.pub >> ~/.ssh/authorized_keys
+chmod 0600 ~/.ssh/authorized_keys
+ssh -o "StrictHostKeyChecking=no" localhost
 
 echo "Script finished!!"
