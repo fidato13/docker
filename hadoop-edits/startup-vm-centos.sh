@@ -47,6 +47,7 @@ chmod 0600 ~/.ssh/authorized_keys
 ssh -o "StrictHostKeyChecking=no" localhost 'exit'
 
 #
+sudo chmod -R 777 /opt/
 cd /opt/hadoop-2.7.3/
 
 #Namenode Format
