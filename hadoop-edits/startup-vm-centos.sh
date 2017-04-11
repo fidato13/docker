@@ -46,4 +46,23 @@ cat ~/.ssh/id_rsa.pub >> ~/.ssh/authorized_keys
 chmod 0600 ~/.ssh/authorized_keys
 ssh -o "StrictHostKeyChecking=no" localhost
 
+#Namenode Format
+/opt/hadoop-2.7.3/bin/hdfs namenode -format
+
+#start dfs
+/opt/hadoop-2.7.3/sbin/start-dfs.sh
+
+#create hdfs directory
+/opt/hadoop-2.7.3/bin/hdfs dfs -mkdir -p /user/trn
+
+#Copy the input files into the distributed filesystem
+/opt/hadoop-2.7.3/bin/hdfs dfs -put /opt/hadoop-2.7.3/etc/hadoop input
+
+#Run some of the examples provided
+/opt/hadoop-2.7.3/bin/hadoop jar share/hadoop/mapreduce/hadoop-mapreduce-examples-2.7.3.jar grep input output 'dfs[a-z.]+'
+
+#Copy the output files from the distributed filesystem to the local filesystem and examine them
+/opt/hadoop-2.7.3/bin/hdfs dfs -get output output
+cat output/*
+
 echo "Script finished!!"
