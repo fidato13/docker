@@ -38,4 +38,7 @@ hadoop jar /opt/hadoop-2.7.3/share/hadoop/mapreduce/hadoop-mapreduce-examples-2.
 #Output result
 cat ~/output/*
 
+#ssh
+ssh localhost
+
 echo "Script finished!!"
