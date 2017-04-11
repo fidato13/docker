@@ -20,6 +20,8 @@ sudo rm /opt/hadoop-2.7.3/etc/hadoop/hadoop-env.sh
 
 #Download hadoop-env.sh from github
 sudo wget https://raw.githubusercontent.com/fidato13/docker/master/hadoop-edits/hadoop-env.sh -P /opt/hadoop-2.7.3/etc/hadoop/
+sudo wget https://raw.githubusercontent.com/fidato13/docker/master/hadoop-edits/core-site.xml -P /opt/hadoop-2.7.3/etc/hadoop/
+sudo wget https://raw.githubusercontent.com/fidato13/docker/master/hadoop-edits/hdfs-site.xml -P /opt/hadoop-2.7.3/etc/hadoop/
 
 #You can add the path of the Hadoop program to the PATH environment variable for your convenience
 echo "export PATH=/opt/hadoop-2.7.3/bin:$PATH" | sudo tee -a /etc/profile
@@ -39,6 +41,6 @@ hadoop jar /opt/hadoop-2.7.3/share/hadoop/mapreduce/hadoop-mapreduce-examples-2.
 cat ~/output/*
 
 #ssh
-ssh localhost
+yes | ssh localhost
 
 echo "Script finished!!"
