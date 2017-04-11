@@ -44,8 +44,7 @@ cat ~/output/*
 ssh-keygen -t rsa -P '' -f ~/.ssh/id_rsa
 cat ~/.ssh/id_rsa.pub >> ~/.ssh/authorized_keys
 chmod 0600 ~/.ssh/authorized_keys
-ssh -o "StrictHostKeyChecking=no" localhost
-exit
+ssh -o "StrictHostKeyChecking=no" localhost 'exit'
 
 #
 cd /opt/hadoop-2.7.3/
