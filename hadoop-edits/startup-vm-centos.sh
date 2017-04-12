@@ -59,16 +59,16 @@ echo "Namenode formatted!!"
 sbin/start-dfs.sh
 
 #create hdfs directory
-hdfs dfs -mkdir -p /user/trn
+#hdfs dfs -mkdir -p /user/trn
 
 #Copy the input files into the distributed filesystem
-hdfs dfs -put /opt/hadoop-2.7.3/etc/hadoop input
+#hdfs dfs -put /opt/hadoop-2.7.3/etc/hadoop input
 
 #Run some of the examples provided
-hadoop jar share/hadoop/mapreduce/hadoop-mapreduce-examples-2.7.3.jar grep input output 'dfs[a-z.]+'
+#hadoop jar share/hadoop/mapreduce/hadoop-mapreduce-examples-2.7.3.jar grep input output 'dfs[a-z.]+'
 
 #Copy the output files from the distributed filesystem to the local filesystem and examine them
-bin/hdfs dfs -get output output
-cat output/*
+#bin/hdfs dfs -get output output
+#cat output/*
 
-echo "Script finished!!"
+echo "Setup finished!!"
