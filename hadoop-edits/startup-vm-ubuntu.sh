@@ -23,12 +23,10 @@ sudo wget https://raw.githubusercontent.com/fidato13/docker/master/hadoop-edits/
 sudo wget https://raw.githubusercontent.com/fidato13/docker/master/hadoop-edits/core-site.xml -P /opt/hadoop-2.7.3/etc/hadoop/
 sudo wget https://raw.githubusercontent.com/fidato13/docker/master/hadoop-edits/hdfs-site.xml -P /opt/hadoop-2.7.3/etc/hadoop/
 
-#You can add the path of the Hadoop program to the PATH environment variable for your convenience
-sudo echo "export PATH=/opt/hadoop-2.7.3/bin:$PATH" | sudo tee -a /etc/profile
+sudo export PATH=/opt/hadoop-2.7.3/bin:$PATH
+sudo export PATH=/opt/hadoop-2.7.3/sbin:$PATH
+source .bashrc
 
-#change to sudo
-#sudo -s
-sudo source /etc/profile
 
 #Setup input files
 mkdir ~/source
@@ -51,12 +49,14 @@ sudo chmod -R 777 /opt/
 cd /opt/hadoop-2.7.3/
 
 #Namenode Format
-bin/hdfs namenode -format
+hdfs namenode -format
 
 echo "Namenode formatted!!"
 
 #start dfs
-sbin/start-dfs.sh
+start-dfs.sh
+
+echo "hdfs started!!"
 
 #create hdfs directory
 #hdfs dfs -mkdir -p /user/trn
