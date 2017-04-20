@@ -23,9 +23,8 @@ sudo wget https://raw.githubusercontent.com/fidato13/docker/master/hadoop-edits/
 sudo wget https://raw.githubusercontent.com/fidato13/docker/master/hadoop-edits/core-site.xml -P /opt/hadoop-2.7.3/etc/hadoop/
 sudo wget https://raw.githubusercontent.com/fidato13/docker/master/hadoop-edits/hdfs-site.xml -P /opt/hadoop-2.7.3/etc/hadoop/
 
-export PATH=/opt/hadoop-2.7.3/bin:$PATH
-export PATH=/opt/hadoop-2.7.3/sbin:$PATH
-source .bashrc
+#amend the path
+source export-path.sh
 
 
 #Setup input files
