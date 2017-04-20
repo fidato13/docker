@@ -19,11 +19,14 @@ sudo tar -zxvf hadoop-2.7.3.tar.gz -C /opt
 sudo rm /opt/hadoop-2.7.3/etc/hadoop/hadoop-env.sh
 sudo rm /opt/hadoop-2.7.3/etc/hadoop/core-site.xml
 sudo rm /opt/hadoop-2.7.3/etc/hadoop/hdfs-site.xml
+sudo rm /opt/hadoop-2.7.3/etc/hadoop/yarn-site.xml
 
 #Download hadoop-env.sh from github
 sudo wget https://raw.githubusercontent.com/fidato13/docker/master/hadoop-edits/hadoop-env.sh -P /opt/hadoop-2.7.3/etc/hadoop/
 sudo wget https://raw.githubusercontent.com/fidato13/docker/master/hadoop-edits/core-site.xml -P /opt/hadoop-2.7.3/etc/hadoop/
 sudo wget https://raw.githubusercontent.com/fidato13/docker/master/hadoop-edits/hdfs-site.xml -P /opt/hadoop-2.7.3/etc/hadoop/
+sudo wget https://raw.githubusercontent.com/fidato13/docker/master/hadoop-edits/yarn-site.xml -P /opt/hadoop-2.7.3/etc/hadoop/
+sudo wget https://raw.githubusercontent.com/fidato13/docker/master/hadoop-edits/mapred-site.xml -P /opt/hadoop-2.7.3/etc/hadoop/
 
 #amend the path
 export PATH=/opt/hadoop-2.7.3/bin:$PATH
