@@ -17,6 +17,8 @@ sudo tar -zxvf hadoop-2.7.3.tar.gz -C /opt
 
 #remove the hadoop-env.sh file
 sudo rm /opt/hadoop-2.7.3/etc/hadoop/hadoop-env.sh
+sudo rm /opt/hadoop-2.7.3/etc/hadoop/core-site.xml
+sudo rm /opt/hadoop-2.7.3/etc/hadoop/hdfs-site.xml
 
 #Download hadoop-env.sh from github
 sudo wget https://raw.githubusercontent.com/fidato13/docker/master/hadoop-edits/hadoop-env.sh -P /opt/hadoop-2.7.3/etc/hadoop/
