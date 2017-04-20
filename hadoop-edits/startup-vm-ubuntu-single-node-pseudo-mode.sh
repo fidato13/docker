@@ -33,16 +33,6 @@ sudo wget https://raw.githubusercontent.com/fidato13/docker/master/hadoop-edits/
 export PATH=/opt/hadoop-2.7.3/bin:$PATH
 export PATH=/opt/hadoop-2.7.3/sbin:$PATH
 
-#Setup input files
-mkdir ~/source
-cp /opt/hadoop-2.7.3/etc/hadoop/*.xml ~/source
-
-#Run hadoop example
-hadoop jar /opt/hadoop-2.7.3/share/hadoop/mapreduce/hadoop-mapreduce-examples-2.7.3.jar grep ~/source ~/output 'principal[.]*'
-
-#Output result
-cat ~/output/*
-
 #ssh
 ssh-keygen -t rsa -P '' -f ~/.ssh/id_rsa
 cat ~/.ssh/id_rsa.pub >> ~/.ssh/authorized_keys
@@ -51,7 +41,6 @@ ssh -o "StrictHostKeyChecking=no" localhost 'exit'
 
 #
 sudo chmod -R 777 /opt/
-cd /opt/hadoop-2.7.3/
 
 #Namenode Format
 hdfs namenode -format
@@ -61,10 +50,12 @@ echo "Namenode formatted!!"
 #start dfs
 start-dfs.sh
 
+echo "HDFS daemon started!"
+
 #start-yarn
 start-yarn.sh
 
-echo "hdfs started!!"
+echo "YARN daemon started!"
 
 #create hdfs directory
 #hdfs dfs -mkdir -p /user/trn
