@@ -22,9 +22,10 @@ sudo rm /opt/hadoop-2.7.3/etc/hadoop/hadoop-env.sh
 sudo wget https://raw.githubusercontent.com/fidato13/docker/master/hadoop-edits/hadoop-env.sh -P /opt/hadoop-2.7.3/etc/hadoop/
 sudo wget https://raw.githubusercontent.com/fidato13/docker/master/hadoop-edits/core-site.xml -P /opt/hadoop-2.7.3/etc/hadoop/
 sudo wget https://raw.githubusercontent.com/fidato13/docker/master/hadoop-edits/hdfs-site.xml -P /opt/hadoop-2.7.3/etc/hadoop/
+sudo wget https://raw.githubusercontent.com/fidato13/docker/master/hadoop-edits/export-path.sh -P ~/.
 
 #amend the path
-source export-path.sh
+source ~/export-path.sh
 
 
 #Setup input files
