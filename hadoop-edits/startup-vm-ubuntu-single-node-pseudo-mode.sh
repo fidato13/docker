@@ -79,4 +79,5 @@ echo "hdfs started!!"
 #bin/hdfs dfs -get output output
 #cat output/*
 
-echo "Setup finished!!"
+echo "Go to http://<ip_address>:50070/ - for Namenode & hdfs UI"
+echo "Go to http://<ip_address>:8088/ - for ResourceManager"
