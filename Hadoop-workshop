@@ -1,0 +1,112 @@
+Add following mapper code:
+		/*
+		 * TODO implement
+		 */
+
+		String line = value.toString();
+
+		String[] words = line.split(" ");
+
+		for (String word : words)
+
+		{
+
+			Text outputKey = new Text(word.toUpperCase().trim());
+
+			IntWritable outputValue = new IntWritable(1);
+
+			context.write(outputKey, outputValue);
+
+		}
+
+
+========================================================
+Add following reducer code,Also change the output value of reducer class to IntWritable :
+
+/*
+     * TODO implement
+     */
+	  int sum = 0;
+
+	   for(IntWritable value : values)
+
+	   {
+
+	   sum += value.get();
+
+	   }
+
+	   context.write(key, new IntWritable(sum));
+
+
+==================================================================
+
+Add following code to Driver:
+
+		/*
+		 * Validate that two arguments were passed from the command line.
+		 */
+		if (args.length != 2) {
+			System.out.printf("Usage: StubDriver <input dir> <output dir>\n");
+			System.exit(-1);
+		}
+
+		Configuration c = new Configuration();
+
+		c.addResource(new Path("/usr/lib/hadoop/etc/hadoop/core-site.xml"));
+		c.addResource(new Path("/usr/lib/hadoop/etc/hadoop/hdfs-site.xml"));
+		
+		String[] files = new GenericOptionsParser(c, args).getRemainingArgs();
+
+		Path input = new Path(files[0]);
+
+		Path output = new Path(files[1]);
+
+		Job j = new Job(c, "wordcount");
+
+		j.setJarByClass(StubDriver.class);
+
+		j.setMapperClass(StubMapper.class);
+
+		j.setReducerClass(StubReducer.class);
+
+		j.setOutputKeyClass(Text.class);
+
+		j.setOutputValueClass(IntWritable.class);
+
+		FileInputFormat.addInputPath(j, input);
+
+		FileOutputFormat.setOutputPath(j, output);
+
+		System.exit(j.waitForCompletion(true) ? 0 : 1);
+
+		/*
+		 * Start the MapReduce job and wait for it to finish. If it finishes
+		 * successfully, return 0. If not, return 1.
+		 */
+		// boolean success = job.waitForCompletion(true);
+		// System.exit(success ? 0 : 1);
+
+		// http://mvnrepository.com/artifact/org.codehaus.jackson/jackson-mapper-asl/1.9.13
+		// http://mvnrepository.com/artifact/org.codehaus.jackson/jackson-core-asl/1.9.13
+
+==========================================================================
+
+Add below two jars to eclipse project by manually downloading them from the below links:
+// http://mvnrepository.com/artifact/org.codehaus.jackson/jackson-mapper-asl/1.9.13
+		// http://mvnrepository.com/artifact/org.codehaus.jackson/jackson-core-asl/1.9.13
+    
+==========================================================================
+
+Specify Input and Output directory paths in run configuration from eclipse:
+
+===========================================================================
+
+Add these two config files so that these eclipse looks up the paths from HDFS:
+
+
+		c.addResource(new Path("/usr/lib/hadoop/etc/hadoop/core-site.xml"));
+		c.addResource(new Path("/usr/lib/hadoop/etc/hadoop/hdfs-site.xml"));
+    
+    
+
