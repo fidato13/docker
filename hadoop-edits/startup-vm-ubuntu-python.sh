@@ -5,6 +5,9 @@
 sudo apt-get update
 sudo apt-get -y upgrade
 
+#Install Java
+sudo apt-get install default-jdk
+
 #python is pre-installed on ubuntu
 python3 -V
 
