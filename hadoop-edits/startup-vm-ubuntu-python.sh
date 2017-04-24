@@ -22,7 +22,7 @@ sudo apt-get install maven
 
 #Install eclipse on ubuntu:
 wget http://ftp-stud.fht-esslingen.de/pub/Mirrors/eclipse/technology/epp/downloads/release/neon/3/eclipse-java-neon-3-linux-gtk-x86_64.tar.gz
-tar -xvfz eclipse-java-neon-3-linux-gtk-x86_64.tar.gz
+tar -xvf eclipse-java-neon-3-linux-gtk-x86_64.tar.gz
 
 #run eclipse
 ~/eclipse/eclipse
