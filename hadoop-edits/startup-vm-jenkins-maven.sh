@@ -1,5 +1,5 @@
 #!/bin/bash
-#set -x #echo on
+set -x #echo on
 
 #https://tecadmin.net/install-jenkins-in-ubuntu/
 
@@ -13,11 +13,15 @@ sudo apt-get install default-jdk
 #Install Maven
 sudo apt-get install maven
 
+#maven version
+mvn --version
+
 # Install Jenkins on ubuntu with java 
 wget -q -O - https://jenkins-ci.org/debian/jenkins-ci.org.key | sudo apt-key add -
 sudo sh -c 'echo deb http://pkg.jenkins-ci.org/debian binary/ > /etc/apt/sources.list.d/jenkins.list'
 
-# Install Jenkins on ubuntu with java 
+# Install Jenkins on ubuntu with java
+sudo apt-get update 
 sudo apt-get install jenkins
 
 #Start Jenkins service
