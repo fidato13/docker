@@ -15,7 +15,7 @@ sudo apt-get install maven
 
 # Install Jenkins on ubuntu with java 
 wget -q -O - https://jenkins-ci.org/debian/jenkins-ci.org.key | sudo apt-key add -
-sh -c 'echo deb http://pkg.jenkins-ci.org/debian binary/ > /etc/apt/sources.list.d/jenkins.list'
+sudo sh -c 'echo deb http://pkg.jenkins-ci.org/debian binary/ > /etc/apt/sources.list.d/jenkins.list'
 
 # Install Jenkins on ubuntu with java 
 sudo apt-get install jenkins
