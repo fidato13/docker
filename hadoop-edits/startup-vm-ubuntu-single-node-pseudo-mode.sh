@@ -4,6 +4,9 @@
 #Refreshing package
 sudo apt-get update
 
+#execute this script inside vm using below command:
+#wget https://raw.githubusercontent.com/fidato13/docker/master/hadoop-edits/startup-vm-ubuntu-single-node-pseudo-mode.sh;chmod 777 startup-vm-ubuntu-single-node-pseudo-mode.sh; source ./startup-vm-ubuntu-single-node-pseudo-mode.sh
+
 #Install Java
 sudo apt-get install default-jdk
 

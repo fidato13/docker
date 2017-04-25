@@ -1,6 +1,9 @@
 #!/bin/bash
 #set -x #echo on
 
+#execute this script inside vm using below command:
+#wget https://raw.githubusercontent.com/fidato13/docker/master/hadoop-edits/startup-vm-ubuntu-python.sh;chmod 777 startup-vm-ubuntu-python.sh;echo "Y Y Y" | source ./startup-vm-ubuntu-python.sh
+
 #Refreshing package
 sudo apt-get update
 sudo apt-get -y upgrade

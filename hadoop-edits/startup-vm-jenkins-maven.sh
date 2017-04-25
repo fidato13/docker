@@ -3,6 +3,9 @@
 
 #https://tecadmin.net/install-jenkins-in-ubuntu/
 
+#execute this script inside vm using below command:
+#wget https://raw.githubusercontent.com/fidato13/docker/master/hadoop-edits/startup-vm-jenkins-maven.sh;chmod 777 startup-vm-jenkins-maven.sh;source ./startup-vm-jenkins-maven.sh
+
 #Refreshing package
 sudo apt-get update
 sudo apt-get -y upgrade
