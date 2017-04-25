@@ -11,6 +11,9 @@ sudo apt-get -y upgrade
 #Install Java
 sudo apt-get install default-jdk
 
+#Install nmon
+sudo apt-get install nmon
+
 #python is pre-installed on ubuntu
 python3 -V
 

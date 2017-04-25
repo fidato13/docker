@@ -16,6 +16,9 @@ sudo apt-get install default-jdk
 #Install Maven
 sudo apt-get install maven
 
+#Install nmon
+sudo apt-get install nmon
+
 #maven version
 mvn --version
 
