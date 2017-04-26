@@ -73,5 +73,18 @@ echo "YARN daemon started!"
 #bin/hdfs dfs -get output output
 #cat output/*
 
+#Download Pig from the below link:
+wget http://ftp.tudelft.nl/apache/pig/pig-0.16.0/pig-0.16.0.tar.gz
+
+#Extract pig
+sudo tar -zxvf pig-0.16.0.tar.gz -C /opt
+
+# Pig Home directory
+export PIG_HOME="/opt/pig-0.16.0"
+export PIG_CONF_DIR="$PIG_HOME/conf"
+export PIG_CLASSPATH="$PIG_CONF_DIR"
+export JAVA_HOME=$(readlink -f /usr/bin/java | sed "s:bin/java::")
+export PATH="$PIG_HOME/bin:$PATH"
+
 echo "Go to http://<ip_address>:50070/ - for Namenode & hdfs UI"
 echo "Go to http://<ip_address>:8088/ - for ResourceManager"
