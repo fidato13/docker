@@ -108,7 +108,7 @@ hdfs dfs -lsr /
 6. verify that datanodes are connected, first by executing command 'jps' on every datanode and 
 then running the following command on your namenode:
 ```
-hdfs dfsadmin -report
+hdfs dfsadmin -report 
 ```
 7. start yarn:
 ```
