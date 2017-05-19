@@ -114,5 +114,17 @@ hdfs dfsadmin -report
 ```
 start-yarn.sh
 ```
+8. Start history server:
+```
+$HADOOP_HOME/sbin/mr-jobhistory-daemon.sh start historyserver
+```
 
 Congratulations , your cluster is now up and running!!
+
+below are some urls:
+Namenode/hdfs :
+http://<namenode_ip>:50070 
+resource manager:
+http://<namenode_ip>:8088 
+history server:
+http://<namenode_ip>:19888
