@@ -1,3 +1,13 @@
+First steps are :
+```
+1. provision the vms on virtual boxs, you may need to attach them to bridge network to be able to ssh into them while having 
+the internet access on them
+2. add ip's of vms onto your host. edit /etc/hosts file
+3. setup ssh on vms, if not already. then perform ssh localhost . this ssh localhost should be passwordless.follow:
+https://dwbi.org/etl/bigdata/183-setup-hadoop-cluster
+4. edit each vm's host file to have ip listed of entire cluster machines.
+5. now you are ready with a normal cluster
+```
 #!/bin/bash
 #set -x #echo on
 
